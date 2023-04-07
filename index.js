@@ -44,7 +44,67 @@ window.onload = function () {
     });
   }
 
- 
+  function validateNumber() {
+    return new Promise((resolve, reject) => {
+      let number = document.getElementById("number").value;
+
+      if (number.length == 10) {
+        if (typeof number === "string" && !isNaN(number)) {
+          resolve("success");
+        }
+      }
+      reject("Enter number only with length 10.");
+    });
+  }
+
+  function isDigit(char) {
+    if (
+      char == "0" ||
+      char == "1" ||
+      char == "2" ||
+      char == "3" ||
+      char == "4" ||
+      char == "5" ||
+      char == "6" ||
+      char == "7" ||
+      char == "8" ||
+      char == "9"
+    )
+      return true;
+    return false;
+  }
+
+  function validateUsername() {
+    return new Promise((resolve, reject) => {
+      let username = document.getElementById("username");
+      username.value = username.value.trim();
+      username = username.value;
+
+      if (username === "") {
+        reject("Username cannot be Empty.");
+      }
+      let firstChar = username.charAt(0);
+      if (
+        firstChar.toLowerCase() == firstChar.toUpperCase() &&
+        firstChar != "_"
+      ) {
+        reject("Username's first character must be character or _");
+      }
+
+      for (let i = 1; i < username.length; i++) {
+        let char = username.charAt(i);
+        if (char.toLowerCase() == char.toUpperCase()) {
+          if (char != "_" && !isDigit(char)) {
+            reject("Username must not contain any special character");
+          }
+        }
+      }
+
+      resolve("success");
+    });
+  }
+
+  
 
   registerButton.onclick = function () {
     registerButton.disabled = true;
