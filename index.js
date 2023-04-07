@@ -104,7 +104,47 @@ window.onload = function () {
     });
   }
 
-  
+  function checkPasswordStrength(password) {
+    let specialCharIncluded = false;
+    let digitIncluded = false;
+
+    if (password.length < 8) return false;
+    for (let i = 0; i < password.length; i++) {
+      let char = password.charAt(i);
+
+      if (char.toLowerCase() == char.toUpperCase()) {
+        if (isDigit(char)) digitIncluded = true;
+        else specialCharIncluded = true;
+      }
+    }
+
+    if (specialCharIncluded && digitIncluded) return true;
+    return false;
+  }
+
+  function validatePasswords() {
+    return new Promise((resolve, reject) => {
+      let password = document.getElementById("password").value;
+      let confirmPassword = document.getElementById("confirm-password").value;
+
+      if (!checkPasswordStrength(password))
+        reject(
+          "Weak Password. Include special character, number, and minimum length 8."
+        );
+
+      if (password !== confirmPassword) reject("Passwords didn't match");
+
+      resolve("success");
+    });
+  }
+
+  function checkTC() {
+    return new Promise((resolve, reject) => {
+      let checkbox = document.getElementById("checkbox");
+      if (checkbox.checked) resolve("success");
+      else reject("Please agree to T&C");
+    });
+  }
 
   registerButton.onclick = function () {
     registerButton.disabled = true;
