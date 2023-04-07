@@ -18,9 +18,18 @@
         <div class="register-form">
           <div class="form-title-div">
             <h2 class="form-title">Registration</h2>
+            <div class="show-msgs">
+              <span id="msg-1"></span>
+              <span id="msg-2"></span>
+              <span id="msg-3"></span>
+              <span id="msg-4"></span>
+              <span id="msg-5"></span>
+              <span id="msg-6"></span>
+            </div>
           </div>
           <div class="title-line"></div>
           <div class="extra-space"></div>
+
           <form class="form">
             <div class="row">
               <div class="input-fields">
@@ -29,6 +38,7 @@
                 <input
                   type="text"
                   class="input-fields-input"
+                  id="first-name"
                   placeholder="Hafeez"
                 />
               </div>
@@ -39,6 +49,7 @@
                 <input
                   type="text"
                   class="input-fields-input"
+                  id="last-name"
                   placeholder="Mohamad"
                 />
               </div>
@@ -51,6 +62,7 @@
                 <input
                   type="email"
                   class="input-fields-input"
+                  id="email"
                   placeholder="haffee@gmail.com"
                 />
               </div>
@@ -61,6 +73,7 @@
                 <input
                   type="number"
                   class="input-fields-input"
+                  id="number"
                   placeholder="+91 XXXXX XXXXX"
                 />
               </div>
@@ -73,6 +86,7 @@
                 <input
                   type="text"
                   class="input-fields-input"
+                  id="username"
                   placeholder="Haffee31"
                 />
               </div>
@@ -83,7 +97,19 @@
                 <input
                   type="password"
                   class="input-fields-input"
+                  id="password"
                   placeholder="Password"
+                />
+              </div>
+
+              <div class="input-fields">
+                <label class="input-fields-label">Confirm Password</label>
+                <br />
+                <input
+                  type="password"
+                  class="input-fields-input"
+                  id="confirm-password"
+                  placeholder="Confirm Password"
                 />
               </div>
             </div>
@@ -121,7 +147,12 @@
             </div>
 
             <div class="checkbox">
-              <input type="checkbox" class="input-fields-radio" name="tc" />
+              <input
+                type="checkbox"
+                class="input-fields-radio"
+                id="checkbox"
+                name="tc"
+              />
               &nbsp;
               <label class="input-fields-label"
                 >I agree to the Terms & Conditions</label
@@ -129,7 +160,7 @@
             </div>
 
             <div class="row">
-              <button class="register-btn">Register</button>
+              <button class="register-btn" id="register-btn">Register</button>
             </div>
             <br />
             <div class="row">
@@ -142,4 +173,6 @@
       </div>
     </div>
   </body>
+
+  <script src="index.js" type="text/javascript"></script>
 </html>
